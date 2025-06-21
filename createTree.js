@@ -1,6 +1,6 @@
 const { createUmi } = require('@metaplex-foundation/umi-bundle-defaults');
 const { generateSigner, keypairIdentity } = require('@metaplex-foundation/umi');
-const { createTree } = require('@metaplex-foundation/mpl-bubblegum');
+const { createTreeV2 } = require('@metaplex-foundation/mpl-bubblegum');
 const { fromWeb3JsKeypair } = require('@metaplex-foundation/umi-web3js-adapters');
 const { Keypair } = require('@solana/web3.js');
 const fs = require('fs');
@@ -17,7 +17,7 @@ async function createBubblegumTree() {
 
   const merkleTree = generateSigner(umi);
 
-  const builder = await createTree(umi, {
+  const builder = await createTreeV2(umi, {
     merkleTree,
     maxDepth: 14,
     maxBufferSize: 64,
