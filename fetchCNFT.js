@@ -5,10 +5,16 @@ const { fromWeb3JsKeypair } = require('@metaplex-foundation/umi-web3js-adapters'
 const { Keypair } = require('@solana/web3.js');
 const fs = require('fs');
 const os = require('os');
+require('dotenv').config();
 
 async function fetchCompressedNFT(assetId) {
   // Use Helius RPC which supports DAS API
-  const umi = createUmi('https://devnet.helius-rpc.com/?api-key=YOUR_API_KEY');
+  const heliusApiKey = process.env.HELIUS_API_KEY;
+  if (!heliusApiKey) {
+    throw new Error('HELIUS_API_KEY not found in environment variables');
+  }
+  
+  const umi = createUmi(`https://devnet.helius-rpc.com/?api-key=${heliusApiKey}`);
   umi.use(dasApi());
 
   // Load wallet from ~/.config/solana/id.json
@@ -50,8 +56,6 @@ async function fetchCompressedNFT(assetId) {
     
   } catch (error) {
     console.error('Error fetching asset:', error.message);
-    console.log('\nNote: This requires an RPC endpoint that supports the DAS API.');
-    console.log('Please replace YOUR_API_KEY with a valid Helius API key or use another DAS-enabled RPC.');
   }
 }
 
