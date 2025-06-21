@@ -10,6 +10,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@metaplex-foundation/mpl-account-compression": "^0.0.1",
     "@metaplex-foundation/mpl-bubblegum": "^5.0.1",
     "@metaplex-foundation/umi": "^1.2.0",
     "@metaplex-foundation/umi-bundle-defaults": "^1.2.0",
