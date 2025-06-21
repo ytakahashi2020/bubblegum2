@@ -32,11 +32,16 @@ async function createBubblegumTree() {
   // Fetch Merkle Tree account
   const merkleTreeAccount = await fetchMerkleTree(umi, merkleTree.publicKey);
   console.log('\nMerkle Tree Account Info:');
-  console.log('Sequence Number:', merkleTreeAccount.tree.sequenceNumber);
-  console.log('Active Index:', merkleTreeAccount.tree.activeIndex);
-  console.log('Buffer Size:', merkleTreeAccount.tree.bufferSize);
-  console.log('Current Root:', merkleTreeAccount.tree.changeLogs[merkleTreeAccount.tree.activeIndex].root);
-  console.log('Right Most Path:', merkleTreeAccount.tree.rightMostPath.path.slice(0, 5).map(p => p.node));
+  console.log('Full account structure:', JSON.stringify(merkleTreeAccount, (key, value) => 
+    typeof value === 'bigint' ? value.toString() : value, 2));
+  
+  // Try to access available properties
+  if (merkleTreeAccount.tree) {
+    console.log('\nTree Details:');
+    console.log('Sequence Number:', merkleTreeAccount.tree.sequenceNumber);
+    console.log('Active Index:', merkleTreeAccount.tree.activeIndex);
+    console.log('Buffer Size:', merkleTreeAccount.tree.bufferSize);
+  }
 
   // Fetch Tree Config account
   const treeConfig = await fetchTreeConfigFromSeeds(umi, { merkleTree: merkleTree.publicKey });
