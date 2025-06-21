@@ -1,11 +1,12 @@
-const { createUmi } = require('@metaplex-foundation/umi-bundle-defaults');
-const { keypairIdentity } = require('@metaplex-foundation/umi');
-const { dasApi } = require('@metaplex-foundation/digital-asset-standard-api');
-const { fromWeb3JsKeypair } = require('@metaplex-foundation/umi-web3js-adapters');
-const { Keypair } = require('@solana/web3.js');
-const fs = require('fs');
-const os = require('os');
-require('dotenv').config();
+import { createUmi } from '@metaplex-foundation/umi-bundle-defaults';
+import { keypairIdentity } from '@metaplex-foundation/umi';
+import { dasApi } from '@metaplex-foundation/digital-asset-standard-api';
+import { fromWeb3JsKeypair } from '@metaplex-foundation/umi-web3js-adapters';
+import { Keypair } from '@solana/web3.js';
+import fs from 'fs';
+import os from 'os';
+import dotenv from 'dotenv';
+dotenv.config();
 
 async function fetchCompressedNFT(assetId) {
   // Use Helius RPC which supports DAS API

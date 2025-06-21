@@ -1,10 +1,10 @@
-const { createUmi } = require('@metaplex-foundation/umi-bundle-defaults');
-const { keypairIdentity, none } = require('@metaplex-foundation/umi');
-const { mintV2, parseLeafFromMintV2Transaction } = require('@metaplex-foundation/mpl-bubblegum');
-const { fromWeb3JsKeypair } = require('@metaplex-foundation/umi-web3js-adapters');
-const { Keypair, PublicKey } = require('@solana/web3.js');
-const fs = require('fs');
-const os = require('os');
+import { createUmi } from '@metaplex-foundation/umi-bundle-defaults';
+import { keypairIdentity, none } from '@metaplex-foundation/umi';
+import { mintV2, parseLeafFromMintV2Transaction } from '@metaplex-foundation/mpl-bubblegum';
+import { fromWeb3JsKeypair } from '@metaplex-foundation/umi-web3js-adapters';
+import { Keypair, PublicKey } from '@solana/web3.js';
+import fs from 'fs';
+import os from 'os';
 
 async function mintCompressedNFT(merkleTreeAddress) {
   const umi = createUmi('https://api.devnet.solana.com');

@@ -1,18 +1,18 @@
-const { createUmi } = require("@metaplex-foundation/umi-bundle-defaults");
-const { generateSigner, keypairIdentity } = require("@metaplex-foundation/umi");
-const {
+import { createUmi } from "@metaplex-foundation/umi-bundle-defaults";
+import { generateSigner, keypairIdentity } from "@metaplex-foundation/umi";
+import {
   createTreeV2,
   fetchTreeConfigFromSeeds,
-} = require("@metaplex-foundation/mpl-bubblegum");
-const {
+} from "@metaplex-foundation/mpl-bubblegum";
+import {
   fetchMerkleTree,
-} = require("@metaplex-foundation/mpl-account-compression");
-const {
+} from "@metaplex-foundation/mpl-account-compression";
+import {
   fromWeb3JsKeypair,
-} = require("@metaplex-foundation/umi-web3js-adapters");
-const { Keypair } = require("@solana/web3.js");
-const fs = require("fs");
-const os = require("os");
+} from "@metaplex-foundation/umi-web3js-adapters";
+import { Keypair } from "@solana/web3.js";
+import fs from "fs";
+import os from "os";
 
 async function createBubblegumTree() {
   const umi = createUmi("https://api.devnet.solana.com");
