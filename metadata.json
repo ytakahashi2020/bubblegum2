@@ -1,0 +1,20 @@
+{
+  "name": "My Compressed NFT",
+  "symbol": "CNFT",
+  "description": "This is a compressed NFT created with Bubblegum v2",
+  "image": "https://arweave.net/123abc",
+  "attributes": [
+    {
+      "trait_type": "Example",
+      "value": "Value"
+    }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/123abc",
+        "type": "image/png"
+      }
+    ]
+  }
+}
